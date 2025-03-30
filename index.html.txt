@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BERITA BAQ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .news {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        @media (min-width: 768px) {
+            .news {
+                flex-direction: row;
+                text-align: left;
+            }
+            img {
+                max-width: 200px;
+                margin-right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>BERITABAQ</h2>
+    <div id="content"></div>
+
+    <script>
+        fetch('https://pendekarasn.github.io/beritabaq/data.json') // Ganti "username" dengan username GitHub Anda
+            .then(response => response.json())
+            .then(data => {
+                let container = document.getElementById('content');
+                data.forEach(item => {
+                    let div = document.createElement('div');
+                    div.classList.add('news');
+                    div.innerHTML = `
+                        <img src="${item.Gambar}" alt="Gambar Berita">
+                        <div>
+                            <h3>${item.Judul}</h3>
+                            <p>${item.IsiBerita}</p>
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>

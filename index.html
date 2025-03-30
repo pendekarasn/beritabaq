@@ -45,13 +45,16 @@
    <div id="content"></div>
 
    <script>
-       fetch('https://script.google.com/macros/s/AKfycbyQ9SzUe1yJ07HR05v4iVE11pJ4r8IVQTektGlru2QWVTOaFWitM79aErsEZrmEZQxzIg/exec') // Ganti dengan URL Web App Anda
+       fetch('https://script.google.com/macros/s/AKfycbxIkSLy1dK4Gv2Uhh34TfX_aOXdD9r9BqKxAhuYYBjEl30Fg21-otiP6YfwQp2XNakGxw/exec') // Ganti dengan URL Web App yang baru
            .then(response => response.json())
            .then(data => {
                let container = document.getElementById('content');
+               container.innerHTML = ""; // Hapus isi lama agar tidak bertumpuk
+
                data.forEach(item => {
                    let div = document.createElement('div');
                    div.classList.add('news');
+
                    div.innerHTML = `
                        <img src="${item.GambarPublik}" alt="Gambar Berita">
                        <div>

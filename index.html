@@ -41,28 +41,26 @@
     </style>
 </head>
 <body>
-    <h2>BERITA BAQ</h2>
-    <div id="content"></div>
+   <h2>BERITA BAQ</h2>
+<div id="content"></div>
 
-    <script>
-        fetch('https://script.google.com/macros/s/AKfycbyQ9SzUe1yJ07HR05v4iVE11pJ4r8IVQTektGlru2QWVTOaFWitM79aErsEZrmEZQxzIg/exec') // Ganti "username" dengan username GitHub Anda
-            .then(response => response.json())
-            .then(data => {
-                let container = document.getElementById('content');
-                data.forEach(item => {
-                    let div = document.createElement('div');
-                    div.classList.add('news');
-                    div.innerHTML = `
-                        <img src="${item.Gambar Publik}" alt="Gambar Berita">
-                        <div>
-                            <h3>${item.Judul}</h3>
-                            <p>${item.Isi Berita}</p>
-                        </div>
-                    `;
-                    container.appendChild(div);
-                });
-            })
-            .catch(error => console.error('Error:', error));
-    </script>
+<script>
+    fetch('https://script.google.com/macros/s/AKfycbyQ9SzUe1yJ07HR05v4iVE11pJ4r8IVQTektGlru2QWVTOaFWitM79aErsEZrmEZQxzIg/exec') // Ganti dengan URL Web App Anda
+        .then(response => response.json())
+        .then(data => {
+            let container = document.getElementById('content');
+            data.forEach(item => {
+                let div = document.createElement('div');
+                div.classList.add('news');
+                div.innerHTML = `
+                    <img src="${item.Gambar Publik}" alt="Gambar Berita">
+                    <h3>${item.Judul}</h3>
+                    <p>${item.Isi Berita}</p>
+                `;
+                container.appendChild(div);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+</script>
 </body>
 </html>

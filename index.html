@@ -45,7 +45,7 @@
     <div id="content"></div>
 
     <script>
-        fetch('https://pendekarasn.github.io/beritabaq/data.jason') // Ganti "username" dengan username GitHub Anda
+        fetch('https://script.google.com/macros/s/AKfycbyQ9SzUe1yJ07HR05v4iVE11pJ4r8IVQTektGlru2QWVTOaFWitM79aErsEZrmEZQxzIg/exec') // Ganti "username" dengan username GitHub Anda
             .then(response => response.json())
             .then(data => {
                 let container = document.getElementById('content');
@@ -53,10 +53,10 @@
                     let div = document.createElement('div');
                     div.classList.add('news');
                     div.innerHTML = `
-                        <img src="${item.GambarPublik}" alt="Gambar Berita">
+                        <img src="${item.Gambar Publik}" alt="Gambar Berita">
                         <div>
                             <h3>${item.Judul}</h3>
-                            <p>${item.IsiBerita}</p>
+                            <p>${item.Isi Berita}</p>
                         </div>
                     `;
                     container.appendChild(div);
